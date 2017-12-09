@@ -25,16 +25,16 @@ public class StudentManagementService {
 	}
 	
 	public Student getStudent(Integer id) {
-		return null;
+		return studentRepository.findOne(id);
 	}
 	
 	
-	public void updateStudent(Student student, Integer id) {
-		
+	public void updateStudent(Student student) {
+		studentRepository.save(student);
 	}
 	
 	public void deleteStudent(Integer id) {
-		
+		studentRepository.delete(id);
 	}
 	
 	

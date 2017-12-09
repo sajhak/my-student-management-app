@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StudentmgtappApplication {
+public class StudentManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StudentmgtappApplication.class, args);
+		SpringApplication.run(StudentManagementApplication.class, args);
 	}
 }
