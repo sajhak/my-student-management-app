@@ -49,3 +49,12 @@ Student API
 - deleteStudent DELETE
 
 }
+
+******************
+Tested Environment
+******************
+
+node --version 8.9.1
+npm  --version
+5.6.0
+
