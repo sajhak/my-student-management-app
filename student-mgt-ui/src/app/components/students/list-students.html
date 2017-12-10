@@ -1,11 +1,16 @@
 <h1>Students</h1>
 
-<table class="table">
+<button>Add Student</button>
+
+<hr>
+<table class="students">
     <thead>
       <tr>
         <th>ID</th>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
         <th></th>
         <th>
           <a href="">
@@ -15,14 +20,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="students">
+      <tr *ngIf="!students">
         <td colspan="5">Loading...</td>
       </tr>
       <tr  *ngFor="let student of students">
         <td>{{student.id}}</td>
-        <td>{{student.email}}</td>
         <td>{{student.first_name}}</td>
         <td>{{student.last_name}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.telephone}}</td>
+        <td>ss</td>
         <td>
           <a href="">
             <i class="fa fa-pencil"></i>

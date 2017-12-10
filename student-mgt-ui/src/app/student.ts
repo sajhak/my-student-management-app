@@ -6,4 +6,5 @@ export class Student {
     date_of_birth: Date;
     address: string;
     courses: string;
+    telephone: string;
 }
