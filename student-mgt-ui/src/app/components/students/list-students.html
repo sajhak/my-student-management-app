@@ -1,5 +1,5 @@
 <br><br>
-<button routerLink="/student/add">[ Add New Student ]</button>
+<button routerLink="/studentadd">[ Add New Student ]</button>
 <h3>Students List</h3>
 <table class="students">
     <thead>
@@ -24,6 +24,9 @@
           <a href="" routerLink="/student/{{student.id}}">more...
             <i class="fa fa-pencil"></i>
           </a>
+        </td>
+        <td>
+          <button (click)="deleteStudent(student.id)"> [Delete] </button>          
         </td>
       </tr>
     </tbody>

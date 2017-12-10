@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
     providers: [StudentService]
 
 })
-export class ListStudent implements OnInit {
+export class ListStudentComponent implements OnInit {
 
     students: Student[];
     observableStudents: Observable<Student[]>;
@@ -24,5 +24,24 @@ export class ListStudent implements OnInit {
             students => this.students = students,
             error => this.errorMessage = <any>error
         );
+    }
+    fetchStudents(): void {
+        this.studentService.getStudents()
+        .subscribe(
+            students => this.students = students,
+            error => this.errorMessage = <any>error
+        );
+    }
+
+    deleteStudent(id): void {
+        console.log('Deleting with id ' + id);
+        if (window.confirm('Are you sure you want to delete ? ')) {
+            // delete
+            this.studentService.deleteStudent(id)
+                 .subscribe( student => {
+                 this.fetchStudents();
+            },
+            error => this.errorMessage = <any>error);
+        }
     }
 }

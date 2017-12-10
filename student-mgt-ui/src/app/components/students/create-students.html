@@ -1,7 +1,7 @@
 <br><br>
 <h3>Add New Student</h3>
 <div>
-    <form action="/action_page.php">
+    <form action="/action_page">
 
       <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
       <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
@@ -31,7 +31,7 @@
       [(ngModel)]="student.notes" >
 
     
-      <input type="submit" value="Add" (click)="addStudent()">
+      <input type="submit" value="Save" (click)="saveStudent()">
       
     </form>
   </div>

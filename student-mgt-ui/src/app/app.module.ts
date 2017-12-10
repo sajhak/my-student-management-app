@@ -4,8 +4,9 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ListStudent } from './components/students/list-students';
-import { CreateStudent } from './components/students/create-students';
+import { ListStudentComponent } from './components/students/list-students';
+import { CreateStudentComponent } from './components/students/create-students';
+import { UpdateStudentComponent } from './components/students/update-students';
 import { AppRoutingModule } from './app-routing.module';
 
 import { Component } from '@angular/core/src/metadata/directives';
@@ -15,8 +16,9 @@ import { StudentService } from '../app/services/student-service';
 @NgModule({
   declarations: [
     AppComponent,
-    ListStudent,
-    CreateStudent
+    ListStudentComponent,
+    CreateStudentComponent,
+    UpdateStudentComponent
   ],
   imports: [
     HttpModule,

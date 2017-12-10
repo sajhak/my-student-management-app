@@ -24,7 +24,7 @@ export class StudentService {
 
     getStudent(id: number): Observable<Student> {
         const st = this.http
-          .get(`${this.baseUrl}/people/${id}`, {headers: this.getHeaders()})
+          .get(`${this.baseUrl}/students/${id}`, {headers: this.getHeaders()})
           .map(mapStudent)
           .catch(handleError);
           return st;

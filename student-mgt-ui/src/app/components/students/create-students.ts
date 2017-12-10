@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../services/student-service';
 import { Student } from '../../student';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
     templateUrl: './create-students.html',
     styleUrls: ['./create-students.css']
 })
-export class CreateStudent implements OnInit {
+export class CreateStudentComponent implements OnInit {
 
     student = new Student();
     students: Student[];
@@ -16,7 +16,6 @@ export class CreateStudent implements OnInit {
     successMessage: string;
 
     constructor(private studentService: StudentService,
-                private zone: NgZone,
                 private router: Router) {}
 
     ngOnInit(): void {
@@ -30,7 +29,7 @@ export class CreateStudent implements OnInit {
         );
     }
 
-    addStudent(): void {
+    saveStudent(): void {
         console.log('adding student...' + JSON.stringify(this.student));
         this.studentService.saveStudent(this.student)
             .subscribe( student => {
@@ -41,6 +40,8 @@ export class CreateStudent implements OnInit {
 
             },
             error => this.errorMessage = <any>error);
-      }
+    }
+
+
 
 }
