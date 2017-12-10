@@ -1,10 +1,10 @@
 export class Student {
     id: number;
     email: string;
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
     date_of_birth: Date;
     address: string;
-    courses: string;
+    notes: string;
     telephone: string;
 }

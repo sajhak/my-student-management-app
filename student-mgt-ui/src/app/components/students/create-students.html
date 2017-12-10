@@ -1,1 +1,37 @@
-<h3>Create Student Form Goes Here</h3>
+<br><br>
+<h3>Add New Student</h3>
+<div>
+    <form action="/action_page.php">
+
+      <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+      
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name.."
+       [(ngModel)]="student.firstName" >
+  
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name.."
+       [(ngModel)]="student.lastName">
+   
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" placeholder="Your address.."
+      [(ngModel)]="student.address"  >
+       
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="Your email.." 
+      [(ngModel)]="student.email" >
+       
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone" placeholder="Your phone number.." 
+      [(ngModel)]="student.telephone" >
+
+      <label for="notes">Notes</label>
+      <input type="text" id="notes" name="notes" placeholder="Additional notes.." 
+      [(ngModel)]="student.notes" >
+
+    
+      <input type="submit" value="Add" (click)="addStudent()">
+      
+    </form>
+  </div>

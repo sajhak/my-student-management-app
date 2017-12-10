@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { Student } from '../student';
 import { STUDENTS } from './mock-students';
@@ -20,21 +21,70 @@ export class StudentService {
           .catch(handleError);
         return st;
     }
+
+    getStudent(id: number): Observable<Student> {
+        const st = this.http
+          .get(`${this.baseUrl}/people/${id}`, {headers: this.getHeaders()})
+          .map(mapStudent)
+          .catch(handleError);
+          return st;
+    }
+
+    saveStudent(student: Student): Observable<Response> {
+        return this
+          .http
+          .post(`${this.baseUrl}/students/`,
+                JSON.stringify(student),
+                {headers: this.getHeaders()})
+          .catch(handleError);
+    }
+
+    udpateStudent(student: Student): Observable<Response> {
+        return this
+          .http
+          .put(`${this.baseUrl}/students/`,
+                JSON.stringify(student),
+                {headers: this.getHeaders()})
+           .map(res => this.extractData(res))
+           .catch(handleError);
+    }
+
+    deleteStudent(id: number): Observable<Response> {
+        return this
+          .http
+          .delete(`${this.baseUrl}/students/${id}`)
+          .catch(handleError);
+    }
+
+    private getHeaders() {
+        const headers = new Headers();
+        headers.append('Accept', 'application/json');
+        headers.append('Content-Type', 'application/json');
+        return headers;
+    }
+
+    private extractData(res) {
+        // TODO
+    }
 }
 
 function mapStudents(response: Response): Student[] {
     return response.json().map(toStudent);
 }
 
+function mapStudent(response: Response): Student {
+    return toStudent(response.json());
+ }
+
 function toStudent(st: any): Student {
     const student = <Student>({
         id: st.id,
         email: st.email,
-        first_name: st.firstName,
-        last_name: st.lastName,
+        firstName: st.firstName,
+        lastName: st.lastName,
         date_of_birth: new Date(),
         address: st.address,
-        courses: st.notes,
+        notes: st.notes,
         telephone: st.telephone
     });
     return student;

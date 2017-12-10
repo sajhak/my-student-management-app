@@ -1,17 +1,11 @@
-<h1>Students</h1>
-
-<button>Add Student</button>
-
-<hr>
+<br><br>
+<button routerLink="/student/add">[ Add New Student ]</button>
+<h3>Students List</h3>
 <table class="students">
     <thead>
       <tr>
-        <th>ID</th>
         <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-        <th></th>
+        <th>Last Name</th>        
         <th>
           <a href="">
             <i class="fa fa-plus"></i>
@@ -24,18 +18,11 @@
         <td colspan="5">Loading...</td>
       </tr>
       <tr  *ngFor="let student of students">
-        <td>{{student.id}}</td>
-        <td>{{student.first_name}}</td>
-        <td>{{student.last_name}}</td>
-        <td>{{student.email}}</td>
-        <td>{{student.telephone}}</td>
-        <td>ss</td>
+        <td>{{student.firstName}}</td>
+        <td>{{student.lastName}}</td>
         <td>
-          <a href="">
+          <a href="" routerLink="/student/{{student.id}}">more...
             <i class="fa fa-pencil"></i>
-          </a>
-          <a href="javascript:void(0)">
-            <i class="fa fa-trash"></i>
           </a>
         </td>
       </tr>
